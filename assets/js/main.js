@@ -5,6 +5,18 @@
 'use strict';
 
 document.title = "Dashboard - Demo PwrSaúde"
+
+
+var footer = document.querySelector('.content-footer');
+
+footer.innerHTML = `<div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+<div class="mb-2 mb-md-0">
+  © 2023
+  <a href="https://pwrsaude.com.br" target="_blank" class="footer-link fw-medium">, made with ❤️ by
+    PwrHealth</a>
+</div>
+</div>`;
+
 var userLang = navigator.language || navigator.userLanguage;
 let isRtl = window.Helpers.isRtl(),
   isDarkStyle = window.Helpers.isDarkStyle(),
@@ -33,8 +45,8 @@ if (document.getElementById('layout-menu')) {
       showDropdownOnHover: localStorage.getItem('templateCustomizer-' + templateName + '--ShowDropdownOnHover') // If value(showDropdownOnHover) is set in local storage
         ? localStorage.getItem('templateCustomizer-' + templateName + '--ShowDropdownOnHover') === 'true' // Use the local storage value
         : window.templateCustomizer !== undefined // If value is set in config.js
-        ? window.templateCustomizer.settings.defaultShowDropdownOnHover // Use the config.js value
-        : true // Use this if you are not using the config.js and want to set value directly from here
+          ? window.templateCustomizer.settings.defaultShowDropdownOnHover // Use the config.js value
+          : true // Use this if you are not using the config.js and want to set value directly from here
     });
     // Change parameter to true if you want scroll animation
     window.Helpers.scrollToActive((animate = false));
@@ -60,7 +72,7 @@ if (document.getElementById('layout-menu')) {
             let layoutCollapsedVal = window.Helpers.isCollapsed() ? 'collapsed' : 'expanded';
             layoutCollapsedCustomizerOptions.querySelector(`input[value="${layoutCollapsedVal}"]`).click();
           }
-        } catch (e) {}
+        } catch (e) { }
       }
     });
   });
@@ -410,7 +422,7 @@ if (document.getElementById('layout-menu')) {
             localStorage.getItem('templateCustomizer-' + templateName + '--LayoutCollapsed') === 'true',
             false
           );
-      } catch (e) {}
+      } catch (e) { }
     }
   }
 })();
